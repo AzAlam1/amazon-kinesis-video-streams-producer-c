@@ -18,12 +18,14 @@ else()
   set(LWS_WITH_MBEDTLS OFF)
 endif()
 
+if (USE_LOCAL_REPO)
+set(LIBWEBSOCKET_GIT_URL ${LOCAL_REPO_PATH}/libwebsockets.git)
+else()
+set(LIBWEBSOCKET_GIT_URL https://github.com/warmcat/libwebsockets.git)
+endif()
+
 ExternalProject_Add(project_libwebsockets
-    if (USE_LOCAL_REPO)
-    GIT_REPOSITORY    ${LOCAL_REPO_PATH}/libwebsockets.git
-    else()
-    GIT_REPOSITORY    https://github.com/warmcat/libwebsockets.git
-    endif()
+    GIT_REPOSITORY    ${LIBWEBSOCKET_GIT_URL}
     GIT_TAG           v3.2.3
     PREFIX            ${CMAKE_CURRENT_BINARY_DIR}/build
     CMAKE_ARGS

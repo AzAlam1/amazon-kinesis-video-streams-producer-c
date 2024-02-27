@@ -20,13 +20,7 @@ endif()
 message(STATUS "CONFIGURE_COMMAND:${CONFIGURE_COMMAND}")
 include(ExternalProject)
 ExternalProject_Add(project_libopenssl
-    if (USE_LOCAL_REPO)
-    message(STATUS "===SSH USE LOCAL")
-    GIT_REPOSITORY    ${LOCAL_REPO_PATH}/openssl.git
-    else ()
-    message(STATUS "==SSH USE remote")
     GIT_REPOSITORY    https://github.com/openssl/openssl.git
-    endif()
     GIT_TAG           OpenSSL_1_1_1t
     PREFIX            ${CMAKE_CURRENT_BINARY_DIR}/build
     CONFIGURE_COMMAND ${CONFIGURE_COMMAND}

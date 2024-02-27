@@ -4,7 +4,11 @@ project(libjsmn-download NONE)
 
 include(ExternalProject)
 ExternalProject_Add(project_libjsmn
+    if (USE_LOCAL_REPO)
+    GIT_REPOSITORY    ${LOCAL_REPO_PATH}/jsmn.git
+    else()
     GIT_REPOSITORY    https://github.com/zserge/jsmn.git
+    endif()
     GIT_TAG           v1.0.0
     PREFIX            ${CMAKE_CURRENT_BINARY_DIR}/build
     PATCH_COMMAND     git apply --ignore-whitespace ${CMAKE_SOURCE_DIR}/../../CMake/Dependencies/libjsmn-add-cmakelists.patch

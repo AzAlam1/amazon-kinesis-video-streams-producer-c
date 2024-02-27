@@ -22,7 +22,7 @@ message(STATUS "CONFIGURE_COMMAND:${CONFIGURE_COMMAND}")
 if (NOT DEFINED USE_LOCAL_REPO)
   set(OPENSSL_GIT_URL https://github.com/openssl/openssl.git)  
 else()
-  set(OPENSSL_GIT_URL ${LOCAL_REPO_PATH}/openssl.git)endif()
+  set(OPENSSL_GIT_URL ${LOCAL_REPO_PATH}/openssl.git)
 endif()
 
 include(ExternalProject)

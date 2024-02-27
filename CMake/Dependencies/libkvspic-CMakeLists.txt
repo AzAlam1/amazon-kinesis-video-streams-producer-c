@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.6.3)
 
 project(libkvspic-download NONE)
 
-if (USE_LOCAL_REPO)
+if (DEFINED LOCAL_REPO_PATH)
 set(AMAZON_KINESIS_VIDE_STREAMS_PIC_GIT_URL ${LOCAL_REPO_PATH}/amazon-kinesis-video-streams-pic.git)
 else()
 set(AMAZON_KINESIS_VIDE_STREAMS_PIC_GIT_URL https://github.com/awslabs/amazon-kinesis-video-streams-pic.git)

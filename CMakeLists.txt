@@ -17,7 +17,7 @@ option(BUILD_COMMON_CURL "Whether or not to build ProducerC curl common library"
 option(BUILD_OPENSSL_PLATFORM "If buildng OpenSSL what is the target platform" OFF)
 option(LOCAL_OPENSSL_BUILD "Whether or not to use local OpenSSL build" OFF)
 option(USE_LOCAL_REPO "Use local repo" OFF)
-option(LOCAL_REPO_PATH "" CACHE STRING "Local repo path")
+## option(LOCAL_REPO_PATH "" CACHE STRING "Local repo path")
 
 # Developer Flags
 option(BUILD_TEST "Build the testing tree." OFF)

@@ -20,6 +20,10 @@ endif()
 message(STATUS "CONFIGURE_COMMAND:${CONFIGURE_COMMAND}")
 
 SET(OPENSSL_GIT_URL https://github.com/openssl/openssl.git)
+if (DEFINED LOCAL_REPO_PATH)
+message(STATUS "OPENSSL_GIT_URL:${OPENSSL_GIT_URL}")
+SET(OPENSSL_GIT_URL ${OPENSSL_GIT_URL}/openssl.git)
+endif()
 
 include(ExternalProject)
 ExternalProject_Add(project_libopenssl

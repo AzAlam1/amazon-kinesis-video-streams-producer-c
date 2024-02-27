@@ -18,10 +18,13 @@ else()
   endif()
 endif()
 message(STATUS "CONFIGURE_COMMAND:${CONFIGURE_COMMAND}")
-set(OPENSSL_GIT_URL https://github.com/openssl/openssl.git)
-if (USE_LOCAL_REPO)
-  set(OPENSSL_GIT_URL ${LOCAL_REPO_PATH}/openssl.git)
+
+if (NOT DEFINED USE_LOCAL_REPO)
+  set(OPENSSL_GIT_URL https://github.com/openssl/openssl.git)  
+else()
+  set(OPENSSL_GIT_URL ${LOCAL_REPO_PATH}/openssl.git)endif()
 endif()
+
 include(ExternalProject)
 ExternalProject_Add(project_libopenssl
     GIT_REPOSITORY    ${OPENSSL_GIT_URL}

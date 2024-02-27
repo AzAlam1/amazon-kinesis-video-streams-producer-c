@@ -31,7 +31,11 @@ if (WIN32)
 endif()
 
 ExternalProject_Add(project_libcurl
+    if (USE_LOCAL_REPO)
     GIT_REPOSITORY    https://github.com/curl/curl.git
+    else()
+    GIT_REPOSITORY    ${LOCAL_REPO_PATH}/curl.git
+    endif()
     GIT_TAG           curl-7_68_0
     PREFIX            ${CMAKE_CURRENT_BINARY_DIR}/build
     CMAKE_ARGS        ${CMAKE_ARGS}

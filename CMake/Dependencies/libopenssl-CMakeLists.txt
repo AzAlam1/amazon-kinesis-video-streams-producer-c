@@ -18,9 +18,14 @@ else()
   endif()
 endif()
 message(STATUS "CONFIGURE_COMMAND:${CONFIGURE_COMMAND}")
+if (USE_LOCAL_REPO)
+set(OPENSSL_GIT_URL ${LOCAL_REPO_PATH}/openssl.git)
+else()
+set(OPENSSL_GIT_URL https://github.com/openssl/openssl.git)
+endif()
 include(ExternalProject)
 ExternalProject_Add(project_libopenssl
-    GIT_REPOSITORY    https://github.com/openssl/openssl.git
+    GIT_REPOSITORY    ${OPENSSL_GIT_URL}
     GIT_TAG           OpenSSL_1_1_1t
     PREFIX            ${CMAKE_CURRENT_BINARY_DIR}/build
     CONFIGURE_COMMAND ${CONFIGURE_COMMAND}

@@ -70,7 +70,7 @@ if(BUILD_DEPENDENCIES)
 
   if(NOT LOCAL_OPENSSL_BUILD)
     message(STATUS "Building non-local OpenSSL")
-    message(STATUS "OPENSSL_EXTRA ${OPENSSL_EXTRA}")
+    ## message(STATUS "OPENSSL_EXTRA ${OPENSSL_EXTRA}")
     message(STATUS "producer-CMakeLists.txt-ENV{ENV_OPENSSL_EXTRA}:$ENV{ENV_OPENSSL_EXTRA}")
     set (OPENSSL_EXTRA_ARGS "")
     foreach (OP ${OPENSSL_EXTRA} )
